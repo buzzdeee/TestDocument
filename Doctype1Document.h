@@ -25,9 +25,9 @@
 #ifndef _DOCTYPE1DOCUMENT_H_
 #define _DOCTYPE1DOCUMENT_H_
 
-#import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 
-@interface Doctype1Document : NSObject
+@interface Doctype1Document : NSDocument
 {
 
 }
