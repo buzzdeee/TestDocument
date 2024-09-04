@@ -1,0 +1,35 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    AppDelegate = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSObject;
+    };
+    Doctype1Document = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSDocument;
+    };
+    FirstResponder = {
+	Actions = (
+	    "updateTextFieldAge:",
+	    "updateTextFieldName:"
+	);
+	Super = NSObject;
+    };
+    TestWindowController = {
+	Actions = (
+	    "updateTextFieldAge:",
+	    "updateTextFieldName:"
+	);
+	Outlets = (
+	    textFieldAge,
+	    textFieldName
+	);
+	Super = NSWindowController;
+    };
+}

@@ -9,6 +9,8 @@
 */
 
 #import "AppController.h"
+#import "TestWindowController.h"
+#import "TestDocumentController.h"
 
 @implementation AppController
 
@@ -46,8 +48,6 @@
 
 - (void) applicationDidFinishLaunching: (NSNotification *)aNotif
 {
-// Uncomment if your application is Renaissance-based
-//  [NSBundle loadGSMarkupNamed: @"Main" owner: self];
 }
 
 - (BOOL) applicationShouldTerminate: (id)sender
@@ -73,5 +73,6 @@
     // Setup global settings, preferences, or shared resources here
     NSLog(@"AppController is setting up the application");
 }
+
 
 @end

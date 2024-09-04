@@ -29,6 +29,7 @@
 #import <AppKit/AppKit.h>
 
 @class AppController;
+@class TestDocumentController;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 {
@@ -36,6 +37,7 @@
 }
 
 @property (nonatomic, strong) AppController *appController;
+@property (strong, nonatomic) TestDocumentController *documentController;
 @end
 
 #endif // _APPDELEGATE_H_

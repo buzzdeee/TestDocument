@@ -10,4 +10,26 @@
     NSMainNibFile = "TestDocument.gorm";
     NSPrincipalClass = NSApplication;
     NSRole = Application;
+    NSTypes = (
+	{
+	    NSDocumentClass = Doctype1Document;
+	    NSHumanReadableName = "DocType 1";
+	    NSIcon = "not_yet";
+	    NSName = DocType1;
+	    NSRole = Editor;
+	    NSUnixExtensions = (
+		doc1
+	    );
+	},
+	{
+	    NSDocumentClass = Doctype2Document;
+	    NSHumanReadableName = "DocType 2";
+	    NSIcon = "not yet";
+	    NSName = DocType2;
+	    NSRole = Editor;
+	    NSUnixExtensions = (
+		doc2
+	    );
+	}
+    );
 }

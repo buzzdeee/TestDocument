@@ -34,6 +34,8 @@ GNUSTEP_INSTALLATION_DOMAIN = USER
 #
 TestDocument_RESOURCE_FILES = \
 Resources/TestDocument.gorm \
+Resources/Doctype1Document.gorm \
+Resources/Doctype2Document.gorm 
 
 
 #
@@ -42,7 +44,13 @@ Resources/TestDocument.gorm \
 TestDocument_HEADER_FILES = \
 AppController.h \
 AppDelegate.h \
-Doctype1Document.h
+Doctype1Document.h \
+TestDocumentController.h \
+TestWindowController.h \
+Doctype2Document.h \
+TestWindow2Controller.h \
+Doctype1.h \
+Doctype2.h
 
 #
 # Objective-C Class files
@@ -50,7 +58,13 @@ Doctype1Document.h
 TestDocument_OBJC_FILES = \
 AppController.m \
 AppDelegate.m \
-Doctype1Document.m
+Doctype1Document.m \
+TestDocumentController.m \
+TestWindowController.m \
+Doctype2Document.m \
+TestWindow2Controller.m \
+Doctype1.m \
+Doctype2.m
 
 #
 # Other sources

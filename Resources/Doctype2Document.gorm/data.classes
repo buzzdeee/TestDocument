@@ -1,0 +1,21 @@
+{
+    "## Comment" = "Do NOT change this file, Gorm maintains it";
+    FirstResponder = {
+	Actions = (
+	    "updateTextFieldWidth:",
+	    "updateTextFieldHeight:"
+	);
+	Super = NSObject;
+    };
+    TestWindow2Controller = {
+	Actions = (
+	    "updateTextFieldWidth:",
+	    "updateTextFieldHeight:"
+	);
+	Outlets = (
+	    textFieldHeight,
+	    textFieldWidth
+	);
+	Super = NSWindowController;
+    };
+}

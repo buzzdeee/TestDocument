@@ -1,6 +1,6 @@
 {
     APPLICATIONICON = "";
-    "APP_DOCUMENT_BASED" = NO;
+    "APP_DOCUMENT_BASED" = YES;
     "APP_TYPE" = GORM;
     "BUILDER_TARGETS" = (
 	all,
@@ -10,11 +10,18 @@
 	distclean,
 	dist
     );
+    "BUILDER_VERBOSE" = YES;
     "BUNDLE_IDENTIFIER" = "";
     "CLASS_FILES" = (
 	"AppController.m",
 	"AppDelegate.m",
-	"Doctype1Document.m"
+	"Doctype1Document.m",
+	"TestDocumentController.m",
+	"TestWindowController.m",
+	"Doctype2Document.m",
+	"TestWindow2Controller.m",
+	"Doctype1.m",
+	"Doctype2.m"
     );
     COMPILEROPTIONS = "";
     CPPOPTIONS = "";
@@ -26,21 +33,29 @@
     "HEADER_FILES" = (
 	"AppController.h",
 	"AppDelegate.h",
-	"Doctype1Document.h"
+	"Doctype1Document.h",
+	"TestDocumentController.h",
+	"TestWindowController.h",
+	"Doctype2Document.h",
+	"TestWindow2Controller.h",
+	"Doctype1.h",
+	"Doctype2.h"
     );
     IMAGES = (
     );
     INSTALLDIR = "$(HOME)/GNUstep";
     INSTALLDOMAIN = User;
     INTERFACES = (
-	"TestDocument.gorm"
+	"TestDocument.gorm",
+	"Doctype1Document.gorm",
+	"Doctype2Document.gorm"
     );
     LANGUAGE = German;
     LIBRARIES = (
 	"gnustep-base",
 	"gnustep-gui"
     );
-    LINKEROPTIONS = "";
+    LINKEROPTIONS = "-ldispatch";
     "LOCALIZED_RESOURCES" = (
     );
     MAININTERFACE = "TestDocument.gorm";
@@ -59,6 +74,26 @@
     "PROJECT_CREATOR" = "Sebastian Reitenbach";
     "PROJECT_DESCRIPTION" = "No description avaliable!";
     "PROJECT_DOCUMENTTYPES" = (
+	{
+	    NSDocumentClass = Doctype1Document;
+	    NSHumanReadableName = "DocType 1";
+	    NSIcon = "not_yet";
+	    NSName = DocType1;
+	    NSRole = Editor;
+	    NSUnixExtensions = (
+		doc1
+	    );
+	},
+	{
+	    NSDocumentClass = Doctype2Document;
+	    NSHumanReadableName = "DocType 2";
+	    NSIcon = "not yet";
+	    NSName = DocType2;
+	    NSRole = Editor;
+	    NSUnixExtensions = (
+		doc2
+	    );
+	}
     );
     "PROJECT_GROUP" = "No group avaliable!";
     "PROJECT_MAINTAINER" = "Sebastian Reitenbach";

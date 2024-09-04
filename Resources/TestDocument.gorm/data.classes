@@ -16,6 +16,13 @@
 	);
 	Super = NSObject;
     };
+    Doctype2Document = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSDocument;
+    };
     FirstResponder = {
 	Actions = (
 	    "orderFrontFontPanel:",

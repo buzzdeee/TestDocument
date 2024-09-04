@@ -23,7 +23,42 @@
 */
 
 #import "Doctype1Document.h"
+#include "TestWindowController.h"
 
 @implementation Doctype1Document
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        // Initialize your document here
+        NSLog(@"Initializing Doctype1Document");        
+    }
+    return self;
+}
+
+- (NSString *)windowNibName {
+    // Return the name of the .gorm file that defines the document's UI
+    return @"Doctype1Document";
+}
+
+
+- (void)makeWindowControllers {
+//    TestWindowController *controller = [[TestWindowController alloc] initWithWindowNibName:@"Doctype1Document"];
+    //    TestWindowController *controller = [[TestWindowController alloc] init];
+
+  //  [self addWindowController:controller];
+}
+
+- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError {
+    // Serialize your document data into NSData for saving
+    return [NSData data];  // Replace with actual serialization code
+}
+
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError {
+    // Deserialize your document data from NSData
+    return YES;  // Replace with actual deserialization code
+}
+
+
 
 @end

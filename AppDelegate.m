@@ -24,15 +24,19 @@
 
 #import "AppDelegate.h"
 #import "AppController.h"
+#import "TestDocumentController.h"
 
+//#import "TestWindowController.h"
 
 @implementation AppDelegate
 
 - (void)applicationWillFinishLaunching:(NSNotification *)notification
 {
   // Initialize app here
-  NSLog(@"applicationWillFinishLaunching: was called");
   
+  NSLog(@"applicationWillFinishLaunching: was called");
+  self.documentController = [TestDocumentController sharedDocumentController];  
+//  NSLog(@"The document controller: %@", self.documentController);
   //[self.appController setupApplication];
 }
 
@@ -40,6 +44,13 @@
 {
   // Initialize app here
   NSLog(@"applicationDidFinishLaunching: was called");
+  // Initialize early, so that it is available before any document related methods are called
+  // and it replaces the default NSDocumentController just before...
+//  _documentController = [TestDocumentController sharedDocumentController];  
+//  self.documentController = [[TestDocumentController alloc] init];
+//  [NSDocumentController sharedDocumentController];
+  NSLog(@"The document controller: %@", self.documentController);  
+    NSLog(@"Current Document Controller from AppDelegate: %@", [NSDocumentController sharedDocumentController]);  
   self.appController = [[AppController alloc] init];  
   [self.appController setupApplication];
 }
@@ -49,7 +60,7 @@
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
   NSLog(@"AppDelegate: applicationWillTerminate: %@", notification);
-  
+      NSLog(@"Current Document Controller from AppDelegate: %@", [NSDocumentController sharedDocumentController]);
   // [self.appController savePreferences];
 }
 
@@ -188,10 +199,6 @@
     // Perform actions after error presentation
 }
 
-
-- (void)newDocument:(id)sender {
-
-}
 
 @end
 
