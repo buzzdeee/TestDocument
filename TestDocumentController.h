@@ -37,6 +37,8 @@
 @property (nonatomic, strong) NSDictionary<NSString *, Class> *documentTypeToDocumentMap;
 
 
+
+
 - (Class)windowControllerClassForDocumentType:(NSString *)typeName;
 
 @end

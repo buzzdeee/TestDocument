@@ -55,12 +55,12 @@
 	"gnustep-base",
 	"gnustep-gui"
     );
-    LINKEROPTIONS = "-ldispatch";
+    LINKEROPTIONS = "";
     "LOCALIZED_RESOURCES" = (
     );
     MAININTERFACE = "TestDocument.gorm";
     MAKEFILEDIR = "$(GNUSTEP_MAKEFILES)";
-    "OBJC_COMPILEROPTIONS" = "-fobjc-arc";
+    "OBJC_COMPILEROPTIONS" = "-fobjc-arc -g";
     "OTHER_RESOURCES" = (
     );
     "OTHER_SOURCES" = (

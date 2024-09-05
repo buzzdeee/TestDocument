@@ -52,6 +52,7 @@
 }
 
 // action methods to update the model
+/*
 - (IBAction)updateTextFieldWidth:(id)sender {
     NSString *newWidth = [sender stringValue]; // Assuming sender is a NSTextField
     [self.documentModel updateWidth:newWidth];
@@ -67,6 +68,6 @@
     [self.document updateChangeCount:NSChangeDone];    
     
 }
-
+*/
 
 @end

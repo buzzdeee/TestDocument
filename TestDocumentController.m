@@ -24,7 +24,7 @@
 
 #import <objc/runtime.h>
 
-#import <dispatch/dispatch.h>
+// #import <dispatch/dispatch.h>
 #import "TestDocumentController.h"
 #import "TestWindowController.h"
 #import "TestWindow2Controller.h"
@@ -33,6 +33,36 @@
 
 @implementation TestDocumentController
 
++ (TestDocumentController *)sharedDocumentController {
+    static TestDocumentController *sharedInstance = nil;
+    static NSObject *syncObject = nil; // A synchronization object
+    
+    // Initialize the synchronization object if needed
+    if (syncObject == nil) {
+        syncObject = [[NSObject alloc] init];
+    }
+    
+    @synchronized(syncObject) {
+        if (sharedInstance == nil) {
+            // Obtain the current shared instance from the superclass
+            sharedInstance = (TestDocumentController *)[super sharedDocumentController];
+            
+            // If the current instance is not our custom class, swizzle the class
+            if (![sharedInstance isKindOfClass:[TestDocumentController class]]) {
+                object_setClass(sharedInstance, [TestDocumentController class]);
+                
+                // Perform your initialization after the swizzling
+                [sharedInstance performCustomInitialization];
+            }
+        }
+    }
+
+    NSLog(@"TestDocumentController sharedDocumentController: Current Document Controller: %@", sharedInstance);
+    return sharedInstance;
+}
+
+// links against -ldispatch, don't want to do that...
+/*
 + (TestDocumentController *)sharedDocumentController {
     static TestDocumentController *sharedInstance = nil;
     static dispatch_once_t onceToken;
@@ -55,7 +85,7 @@
     NSLog(@"TestDocumentController  sharedDocumentController: Current Document Controller: %@", sharedInstance);    
     return sharedInstance;
 }
-
+*/
 
 
 - (void)performCustomInitialization {
@@ -85,7 +115,7 @@
 
 
 - (void)newDocument:(id)sender {
-    NSLog(@"TestDocument newDocument: was called");
+    NSLog(@"TestDocumentController newDocument: was called");
     Class documentControllerClass;
     Class windowControllerClass;
     NSString *windowNibName;
@@ -130,5 +160,6 @@
         NSLog(@"Error: No document class found for type.");
     }
 }
+
 
 @end

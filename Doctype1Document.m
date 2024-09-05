@@ -23,16 +23,22 @@
 */
 
 #import "Doctype1Document.h"
-#include "TestWindowController.h"
+#import "TestWindowController.h"
+#import "Doctype1.h"
 
 @implementation Doctype1Document
+
+@synthesize model = _model;
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         // Initialize your document here
-        NSLog(@"Initializing Doctype1Document");        
+        NSLog(@"Initializing Doctype1Document self: %@", self);    
+        // IS this sane to call here????
+        _model = [[Doctype1 alloc] init];
     }
+    
     return self;
 }
 
@@ -50,15 +56,92 @@
 }
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError {
-    // Serialize your document data into NSData for saving
-    return [NSData data];  // Replace with actual serialization code
+    // Ensure the model exists
+    NSLog(@"Doctype1Document dataOfType called! %@", self.model);
+    NSLog(@"Doctype1Document dataOfType called! %@", self.model.age);
+    NSLog(@"Doctype1Document dataOfType called! %@", self.model.name);        
+    @try {
+        if (!self.model) {
+            if (outError) {
+                *outError = [NSError errorWithDomain:NSCocoaErrorDomain
+                                                code:NSFileWriteUnknownError
+                                            userInfo:@{NSLocalizedDescriptionKey: @"No data to save"}];
+            }
+            return nil;
+        }
+        
+        // Archive model object to NSData
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.model requiringSecureCoding:NO error:outError];
+        
+        if (!data && outError) {
+            NSLog(@"Archiving failed with error: %@", *outError);
+            return nil;
+        }
+        
+        NSLog(@"Successfully encoded the data: %@", data);
+        return data;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Exception caught during archiving: %@", exception);
+        if (outError) {
+            *outError = [NSError errorWithDomain:NSCocoaErrorDomain
+                                            code:NSFileWriteUnknownError
+                                        userInfo:@{NSLocalizedDescriptionKey: [exception reason]}];
+        }
+        return nil;
+    } 
+    //return [NSData data];
 }
+
+// shouldn't be necessary, was just for debugging help...
+- (BOOL)writeToURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError **)outError {
+    NSLog(@"Saving to URL: %@", url);
+    return [super writeToURL:url ofType:typeName error:outError];
+}
+
+
+
 
 - (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError {
-    // Deserialize your document data from NSData
-    return YES;  // Replace with actual deserialization code
+    // Unarchive the model from the data
+    NSLog(@"Doctype1Document readFromData called!");
+    self.model = [NSKeyedUnarchiver unarchivedObjectOfClass:[Doctype1 class] fromData:data error:outError];
+    
+    // If unarchiving fails, return NO and pass the error
+    if (!self.model && outError) {
+        return NO;
+    }
+ 
+    return YES;
 }
 
 
-
+- (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)typeName error:(NSError **)outError {
+    NSLog(@"Doctype1Document readFromURL:ofType:error: called");
+    
+    // Load data from file
+    //NSData *data = [NSData dataWithContentsOfURL:url options:0 error:outError];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    if (!data) {
+        NSLog(@"Failed to read data from URL: %@", url);
+        return NO;
+    }
+    
+    // Unarchive model object from NSData
+    self.model = [NSKeyedUnarchiver unarchivedObjectOfClass:[Doctype1 class] fromData:data error:outError];
+    if (!self.model) {
+        NSLog(@"Failed to unarchive model");
+        return NO;
+    }
+    
+    // Notify that the document has been successfully loaded
+    [self updateChangeCount:NSChangeCleared];
+    
+    // Force initialization of the UI if lazy loading is used
+    TestWindowController *windowController = [[TestWindowController alloc] initWithWindowNibName:@"Doctype1Document"];
+    [self addWindowController:windowController];
+    [windowController showWindow:self];
+    
+    return YES;
+}
 @end

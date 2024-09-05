@@ -36,10 +36,10 @@
 
 @property (nonatomic, strong) Doctype2 *documentModel;
 
-
+/*
 - (IBAction)updateTextFieldWidth:(id)sender;
 - (IBAction)updateTextFieldHeight:(id)sender;
-
+*/
 @end
 
 #endif // _TESTWINDOW2CONTROLLER_H_

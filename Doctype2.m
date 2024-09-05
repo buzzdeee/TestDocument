@@ -26,12 +26,6 @@
 
 @implementation Doctype2
 
-- (void)updateWidth:(NSString *)newWidth {
-    self.width = newWidth;
-}
 
-- (void)updateHeight:(NSString *)newHeight {
-    self.height = newHeight;
-}
 
 @end

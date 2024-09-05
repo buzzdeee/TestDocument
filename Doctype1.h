@@ -27,16 +27,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Doctype1 : NSObject
+@interface Doctype1 : NSObject <NSSecureCoding>
 {
 
 }
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) NSString *age;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *age;
 
-- (void)updateName:(NSString *)newName;
-- (void)updateAge:(NSString *)newAge;
 
 @end
 

@@ -26,12 +26,29 @@
 
 @implementation Doctype1
 
-- (void)updateName:(NSString *)newName {
-    self.name = newName;
+@synthesize name = _name;
+@synthesize age = _age;
+
+// Since we use NSKeyedArchiver, and we use secure coding
+// we have to support it with the following three methods
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
-- (void)updateAge:(NSString *)newAge {
-    self.age = newAge;
+- (void)encodeWithCoder:(NSCoder *)coder {
+    NSLog(@"Doctype1 encodeWithCoder");
+    [coder encodeObject:self.name forKey:@"name"];
+    [coder encodeObject:self.age forKey:@"age"];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    NSLog(@"Doctype1 initWithCoder");
+    self = [super init];
+    if (self) {
+        self.name = [coder decodeObjectOfClass:[NSString class] forKey:@"name"];
+        self.age = [coder decodeObjectOfClass:[NSString class] forKey:@"age"];
+    }
+    return self;
 }
 
 @end

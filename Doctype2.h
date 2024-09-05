@@ -32,11 +32,8 @@
 
 }
 
-@property (nonatomic, strong) NSString *width;
-@property (nonatomic, assign) NSString *height;
-
-- (void)updateWidth:(NSString *)newWidth;
-- (void)updateHeight:(NSString *)newHeight;
+@property (nonatomic, copy) NSString *width;
+@property (nonatomic, copy) NSString *height;
 
 
 @end

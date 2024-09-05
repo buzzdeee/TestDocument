@@ -26,11 +26,14 @@
 #define _DOCTYPE1DOCUMENT_H_
 
 #import <AppKit/AppKit.h>
+#import "Doctype1.h"
 
 @interface Doctype1Document : NSDocument
 {
 
 }
+
+@property (nonatomic, strong) Doctype1 *model;
 
 @end
 

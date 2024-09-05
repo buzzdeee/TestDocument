@@ -7,6 +7,13 @@
 	);
 	Super = NSObject;
     };
+    Doctype1 = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSObject;
+    };
     Doctype1Document = {
 	Actions = (
 	);
@@ -14,17 +21,38 @@
 	);
 	Super = NSDocument;
     };
+    Doctype2 = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSObject;
+    };
     FirstResponder = {
 	Actions = (
+	    "updateModel:",
 	    "updateTextFieldAge:",
 	    "updateTextFieldName:"
 	);
 	Super = NSObject;
     };
+    TestDocumentController = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSDocumentController;
+    };
+    TestWindow2Controller = {
+	Actions = (
+	);
+	Outlets = (
+	);
+	Super = NSWindowController;
+    };
     TestWindowController = {
 	Actions = (
-	    "updateTextFieldAge:",
-	    "updateTextFieldName:"
+	    "updateModel:"
 	);
 	Outlets = (
 	    textFieldAge,
