@@ -37,13 +37,6 @@
 @property (weak) IBOutlet NSTextField *textFieldAge;
 @property (weak) IBOutlet NSTextField *textFieldName;
 
-//@property (nonatomic, strong) Doctype1 *documentModel;
-
-
-
-//- (IBAction)updateTextFieldAge:(id)sender;
-//- (IBAction)updateTextFieldName:(id)sender;
-
 - (IBAction)updateModel:(id)sender;
 @end
 

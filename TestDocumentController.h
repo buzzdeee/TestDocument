@@ -34,14 +34,11 @@
 
 // used to keep track, which window controller class belongs to which Document Type name
 @property (nonatomic, strong) NSDictionary<NSString *, Class> *documentTypeToWindowControllerMap;
-@property (nonatomic, strong) NSDictionary<NSString *, Class> *documentTypeToDocumentMap;
-
-
-
+// used to keep track, which model class belongs to each type of document
+@property (nonatomic, strong) NSDictionary<NSString *, Class> *documentTypeToModelMap;
 
 - (Class)windowControllerClassForDocumentType:(NSString *)typeName;
 
 @end
 
 #endif // _TESTDOCUMENTCONTROLLER_H_
-

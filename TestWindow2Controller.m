@@ -29,45 +29,32 @@
 
 // don't do anything here
 // we don't want the window loaded on application start
-- (TestWindow2Controller *)init {
-
-    return self;
+- (TestWindow2Controller *)init
+{
+  return self;
 }
 
-- (TestWindow2Controller *)initWithWindowNibName:(NSString *)nibNameOrNil {
-    self = [super initWithWindowNibName:nibNameOrNil];
-    if (self) {
-        NSLog(@"TestWindow2Controller initialized with nib: %@", nibNameOrNil);
-        _documentModel = [[Doctype2 alloc] init];
-    } else {
-        NSLog(@"TestWindow2Controller had trouble initializing");
+- (TestWindow2Controller *)initWithWindowNibName:(NSString *)nibNameOrNil
+{
+  self = [super initWithWindowNibName:nibNameOrNil];
+  if (self)
+    {
+      NSLog(@"TestWindow2Controller initWithWindowNibName: %@", nibNameOrNil);
+      _documentModel = [[Doctype2 alloc] init];
     }
-    return self;
+  else
+    {
+      NSLog(@"TestWindow2Controller had trouble initializing");
+    }
+  return self;
 }
 
-- (void)windowDidLoad {
-    [super windowDidLoad];
-    // Perform additional setup after loading the window
-    NSLog(@"TestWindow2Controller: Window loaded successfully from .gorm file: %@", self.window);
+- (void)windowDidLoad
+{
+  [super windowDidLoad];
+  // Perform additional setup after loading the window
+  NSLog(@"TestWindow2Controller: windowDidLoad: successfully from .gorm file: %@", self.window);
 }
 
-// action methods to update the model
-/*
-- (IBAction)updateTextFieldWidth:(id)sender {
-    NSString *newWidth = [sender stringValue]; // Assuming sender is a NSTextField
-    [self.documentModel updateWidth:newWidth];
-    NSLog(@"Updated width to: %@", self.documentModel.width);
-    [self.document updateChangeCount:NSChangeDone];    
-    
-}
-
-- (IBAction)updateTextFieldHeight:(id)sender {
-    NSString *newHeight = [sender stringValue]; // Assuming sender is a NSTextField
-    [self.documentModel updateHeight:newHeight];
-    NSLog(@"Updated name to: %@", self.documentModel.height);
-    [self.document updateChangeCount:NSChangeDone];    
-    
-}
-*/
 
 @end

@@ -7,12 +7,14 @@
 */
 
 #import <AppKit/AppKit.h>
+#import "CustomInitializer.h"
 
 int 
 main(int argc, const char *argv[])
 {
   @autoreleasepool
     {
+      [CustomInitializer initializeCustomDocumentController];
       return NSApplicationMain (argc, argv);
     }
 }

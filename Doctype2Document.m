@@ -26,36 +26,39 @@
 
 @implementation Doctype2Document
 
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        // Initialize your document here
-        NSLog(@"Initializing Doctype2Document");
+- (instancetype)init
+{
+  self = [super init];
+  if (self)
+    {
+      // Initialize your document here
+      NSLog(@"Initializing Doctype2Document");
     }
-    return self;
+  return self;
 }
 
-- (NSString *)windowNibName {
-    // Return the name of the .gorm file that defines the document's UI
-    return @"Doctype2Document";
+- (NSString *)windowNibName
+{
+  // Return the name of the .gorm file that defines the document's UI
+  return @"Doctype2Document";
 }
 
-
-- (void)makeWindowControllers {
-//    TestWindowController *controller = [[TestWindowController alloc] initWithWindowNibName:@"Doctype1Document"];
-    //    TestWindowController *controller = [[TestWindowController alloc] init];
-
-  //  [self addWindowController:controller];
+// we don't want to let it do anything here, as we don't want the window 
+// to show immediately on startup
+- (void)makeWindowControllers
+{
 }
 
-- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError {
-    // Serialize your document data into NSData for saving
-    return [NSData data];  // Replace with actual serialization code
+- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError
+{
+  // Serialize your document data into NSData for saving
+  return [NSData data];  // Replace with actual serialization code
 }
 
-- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError {
-    // Deserialize your document data from NSData
-    return YES;  // Replace with actual deserialization code
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError
+{
+  // Deserialize your document data from NSData
+  return YES;  // Replace with actual deserialization code
 }
 
 @end

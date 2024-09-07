@@ -5,7 +5,7 @@
 
    Author: Sebastian Reitenbach
 
-   Created: 2024-09-02 20:22:26 +0200 by sebastia
+   Created: 2024-09-05 22:10:12 +0200 by sebastia
 
    This application is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public
@@ -22,23 +22,12 @@
    Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111 USA.
 */
 
-#ifndef _APPDELEGATE_H_
-#define _APPDELEGATE_H_
+#import "CustomInitializer.h"
+#import "TestDocumentController.h"
 
-#import <Foundation/Foundation.h>
-#import <AppKit/AppKit.h>
-
-@class AppController;
-@class TestDocumentController;
-
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@implementation CustomInitializer
++ (void)initializeCustomDocumentController
 {
-
+  [TestDocumentController sharedDocumentController];
 }
-
-@property (nonatomic, strong) AppController *appController;
-@property (nonatomic, strong) TestDocumentController *documentController;
 @end
-
-#endif // _APPDELEGATE_H_
-

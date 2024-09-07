@@ -42,36 +42,16 @@
 {
 }
 
-- (void) awakeFromNib
-{
-}
-
-- (void) applicationDidFinishLaunching: (NSNotification *)aNotif
-{
-}
-
-- (BOOL) applicationShouldTerminate: (id)sender
-{
-  return YES;
-}
-
-- (void) applicationWillTerminate: (NSNotification *)aNotif
-{
-}
-
-- (BOOL) application: (NSApplication *)application
-	    openFile: (NSString *)fileName
-{
-  return NO;
-}
 
 - (void) showPrefPanel: (id)sender
 {
+  NSLog(@"AppController: showPrefPanel: was called");
 }
 
-- (void)setupApplication {
-    // Setup global settings, preferences, or shared resources here
-    NSLog(@"AppController is setting up the application");
+- (void)setupApplication
+{
+  // Setup global settings, preferences, or shared resources here
+  NSLog(@"AppController: setupApplication was called");
 }
 
 

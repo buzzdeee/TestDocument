@@ -50,7 +50,8 @@ TestWindowController.h \
 Doctype2Document.h \
 TestWindow2Controller.h \
 Doctype1.h \
-Doctype2.h
+Doctype2.h \
+CustomInitializer.h
 
 #
 # Objective-C Class files
@@ -64,7 +65,8 @@ TestWindowController.m \
 Doctype2Document.m \
 TestWindow2Controller.m \
 Doctype1.m \
-Doctype2.m
+Doctype2.m \
+CustomInitializer.m
 
 #
 # Other sources
